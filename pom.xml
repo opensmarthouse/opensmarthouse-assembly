@@ -7,19 +7,19 @@
       <version>0.9.1-SNAPSHOT</version>
    </parent>
 
-   <artifactId>opensmarthouse-distro</artifactId>
+   <artifactId>opensmarthouse-assembly</artifactId>
    <packaging>karaf-assembly</packaging>
    <name>OpenSmartHouse Assembly</name>
    <description>OpenSmartHouse Karaf Runtime Assembly</description>
 
    <properties>
-      <snapshot.repository-id>opensmarthouse-snapshots</snapshot.repository-id>
-      <snapshot.repository-name>OpenSmartHouse Snapshots (GitHub)</snapshot.repository-name>
-      <snapshot.repository-url>https://maven.pkg.github.com/opensmarthouse/opensmarthouse-assembly/</snapshot.repository-url>
+    <snapshot.repository-id>opensmarthouse-sonatype-snapshot</snapshot.repository-id>
+    <snapshot.repository-name>OpenSmartHouse Snapshots (Sonatype)</snapshot.repository-name>
+    <snapshot.repository-url>https://oss.sonatype.org/content/repositories/snapshots</snapshot.repository-url>
 
-      <release.repository-id>bintray-releases</release.repository-id>
-      <release.repository-name>Bintray Releases</release.repository-name>
-      <release.repository-url>https://api.bintray.com/maven/opensmarthouse/maven/opensmarthouse-assembly/;publish=1</release.repository-url>
+    <release.repository-id>opensmarthouse-sonatype-release</release.repository-id>
+    <release.repository-name>OpenSmartHouse Release (Sonatype)</release.repository-name>
+    <release.repository-url> https://oss.sonatype.org/service/local/staging/deploy/maven2</release.repository-url>
    </properties>
 
   <!-- Repositories -->
@@ -36,6 +36,19 @@
       <name>${snapshot.repository-name}</name>
     </snapshotRepository>
   </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>opensmarthouse-sonatype-snapshot</id>
+      <name>OpenSmartHouse Snapshots (Sonatype)</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+    <repository>
+      <id>opensmarthouse-sonatype-release</id>
+      <name>OpenSmartHouse Release (Sonatype)</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+    </repository>
+  </repositories>
 
    <dependencies>
       <dependency>
@@ -84,26 +97,6 @@
          <type>xml</type>
       </dependency>
    </dependencies>
-
-   <repositories>
-      <repository>
-         <id>${release.repository-id}</id>
-         <name>${release.repository-name}</name>
-         <url>${release.repository-url}</url>
-      </repository>
-      <repository>
-         <id>${snapshot.repository-id}</id>
-         <name>${snapshot.repository-name}</name>
-         <url>${snapshot.repository-url}</url>
-      </repository>
-
-  		<repository>
-			<id>bintray-opensmarthouse-maven</id>
-			<name>bintray</name>
-			<url>https://dl.bintray.com/opensmarthouse/maven</url>
-		</repository>
-
-   </repositories>
 
    <build>
       <resources>
@@ -173,7 +166,7 @@
                   <feature>http</feature>
                   <feature>opensmarthouse-core-base</feature>
                   <feature>opensmarthouse-runtime-base</feature>
-     <!--             <feature>opensmarthouse-ui-webui</feature> -->
+                  <feature>opensmarthouse-ui-webui</feature>
                </bootFeatures>
                <archiveTarGz>true</archiveTarGz>
                <blacklistedFeatures />
