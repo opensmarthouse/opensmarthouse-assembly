@@ -184,6 +184,7 @@
                   <feature>opensmarthouse-ui-webui</feature>
                </bootFeatures>
                <archiveTarGz>true</archiveTarGz>
+               <featuresProcessing>processing.xml</featuresProcessing>
                <blacklistedFeatures />
                <blacklistedBundles />
             </configuration>
