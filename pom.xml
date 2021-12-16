@@ -4,7 +4,7 @@
    <parent>
       <groupId>org.opensmarthouse</groupId>
       <artifactId>parent</artifactId>
-      <version>0.9.1-SNAPSHOT</version>
+      <version>0.10.0-SNAPSHOT</version>
    </parent>
 
    <artifactId>opensmarthouse-assembly</artifactId>
